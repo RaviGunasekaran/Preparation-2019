@@ -377,3 +377,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration HourGlassProgram re
 2019-12-07 19:22:51,675 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2019-12-07 19:22:51,686 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\WS4\Preparation-2019\src\main\resources
 2019-12-07 19:22:51,798 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-12-07 19:22:51,808 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\WS4\Preparation-2019\src\test\resources
