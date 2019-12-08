@@ -1,0 +1,93 @@
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+
+public class FirstTest {
+	private WebDriver driver;
+
+	@Test
+	public void firstTest() {
+		System.out.println("Hello...");
+		driver.get("http://newtours.demoaut.com/");
+		
+	}
+	
+	@Test
+	public void dropDownTest(){
+		driver.get("http://the-internet.herokuapp.com/dropdown");
+		WebElement element = driver.findElement(By.cssSelector("#dropdown"));
+		Select select = new Select(element );
+		select.selectByVisibleText("Option 2");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void MouseHoverTest(){
+		driver.get("http://the-internet.herokuapp.com/hovers");
+		WebElement element = driver.findElement(By.cssSelector(".figure:nth-of-type(2)"));
+		Actions action = new Actions(driver);
+		action.moveToElement(element).contextClick().build().perform();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
+	
+	
+	@Test
+	public void SwitchWindowsTest(){
+		driver.get("http://the-internet.herokuapp.com/windows");
+		WebElement element = driver.findElement(By.cssSelector("a[href='/windows/new']"));
+		element.click();
+		Set<String>  wh = driver.getWindowHandles();
+		for (String string : wh) {
+			driver.switchTo().window(string);
+			System.out.println("Current Handle : "+string);
+		}
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
+
+	@BeforeTest
+	public void beforeTest() {
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\vramu.ORADEV\\Downloads\\Selenium-Jars\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@AfterTest
+	public void afterTest() {
+		driver.close();
+		driver.quit();
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.test.threadSample;
+
+public class ResourceLock {
+	public volatile int flag = 1;
+}

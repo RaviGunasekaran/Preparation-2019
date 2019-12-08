@@ -1,0 +1,30 @@
+package seleniumtests;
+
+import java.util.HashMap;
+
+public class printCountWithLetter {
+
+	public static void main(String[] args) {
+//		// String s = "Apple";
+//		// s.sor
+//		// String out = "";
+//		// int cnt=0;
+//		// char[] c = s.toCharArray();
+//		// for (int i = 0; i < c.length; i++) {
+//		// out = c[i]+out+cnt+1;
+//		// for (int j = 1; j < c.length-1; j++) {
+//		// if(out.))
+//		// out = c[i]+out+cnt+1;
+//		// }
+//		// cnt=0;
+//		// }
+//		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+//		hm.put('a', 1);
+//		hm.put('p', 2);
+//		hm.put('l', 2);
+//		hm.put('e', 1);
+//		System.out.println(hm);
+//		hm.
+	}
+
+}

@@ -1,0 +1,58 @@
+package seleniumtests;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeGroups;
+
+public class BeforeTestBeforeMethodTest {
+	@Test
+	public void test100() {
+		System.out.println("Test-100");
+	}
+
+	@Test(groups="100")
+	public void test200() {
+		System.out.println("Test-200");
+	}
+
+	@BeforeClass
+	public void beforeClass() {
+		System.out.println("@@BeforeClass");
+	}
+
+	@BeforeGroups(dependsOnGroups="100")
+	public void beforeGroups() {
+		System.out.println("@@BeforeGroups");
+	}
+
+	@BeforeSuite
+	public void beforeSuite() {
+		System.out.println("@@BeforeSuite");
+	}
+
+	@BeforeMethod
+	public void beforeMethod() {
+		System.out.println("@BeforeMethod");
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+		System.out.println("@AfterMethod");
+	}
+
+	@BeforeTest
+	public void beforeTest() {
+		System.out.println("@BeforeTest");
+	}
+
+	@AfterTest
+	public void afterTest() {
+		System.out.println("@AfterTest");
+	}
+
+}

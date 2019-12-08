@@ -1,0 +1,7 @@
+package com.java.questions;
+
+public class Parent {
+	void print() {
+		System.out.println("Parent::print()");
+	}
+}

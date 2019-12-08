@@ -1,0 +1,26 @@
+package com.pageobjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BaseClass {
+	protected static WebDriver driver;
+
+	public BaseClass() {
+		driver = this.driver;
+	}
+
+	public WebDriver BaseClass(String browser) {
+		if (browser.toLowerCase() == "firefox") {
+			System.setProperty("webdriver.gecko.driver", "D:/WS3/geckodriver.exe");
+			driver = new FirefoxDriver();
+		}
+		if (browser.toLowerCase() == "chrome") {
+			System.setProperty("webdriver.chrome.driver", "D:/WS3/chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+		return driver;
+	}
+
+}

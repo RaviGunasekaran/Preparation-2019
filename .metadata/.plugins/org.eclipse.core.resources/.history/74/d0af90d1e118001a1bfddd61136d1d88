@@ -1,0 +1,14 @@
+package com.java.questions;
+
+public class Derived extends Parent {
+
+	public static void main(String[] args) {
+		Parent drive = new Derived();
+		drive.print();
+	}
+
+	void print() {
+		System.out.println("Derived::print");
+	}
+
+}

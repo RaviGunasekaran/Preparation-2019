@@ -1,0 +1,50 @@
+package com.utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class ReadPropertyFile {
+	static InputStream input;
+	static Properties prop;
+
+	public ReadPropertyFile() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ReadPropertyFile(String string) throws IOException {
+		input = new FileInputStream("D:/WS3/test/com.selenium/src/test/java/com/utilities/config.properties");
+		// load a properties file
+		prop = new Properties();
+		// inputStream = getClass().getClassLoader().getResourceAsStream(input);
+		// get the property value and print it out
+		prop.load(input);
+		System.out.println(prop.getProperty("base_url"));
+//		return prop.getProperty(string);
+	}
+	//
+	// public String ReadPropertyFile(String s) throws IOException {
+	// return returnPropertyValue(s);
+	//
+	// }
+
+	// public static void main(String[] args) throws IOException {
+	// input = new
+	// FileInputStream("D:/WS3/test/com.selenium/src/test/java/com/utilities/config.properties");
+	// // load a properties file
+	// prop = new Properties();
+	// // inputStream = getClass().getClassLoader().getResourceAsStream(input);
+	// // get the property value and print it out
+	// prop.load(input);
+	// System.out.println(prop.getProperty("base_url"));
+	//
+	// }
+
+	public String returnPropertyValue(String s) throws IOException {
+		System.out.println(prop.getProperty(s));
+		return prop.getProperty(s);
+	}
+
+}

@@ -1,0 +1,45 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+
+import com.google.gson.internal.LinkedTreeMap;
+
+public class CountChars {
+
+	public static void main(String[] args) {
+
+		// ### COUNT CHAR AND VALUE USING HASHMAP ####
+		String s = "apple";
+		LinkedTreeMap<Character, Integer> ltm = new LinkedTreeMap<Character, Integer>();
+		char[] c = s.toCharArray();
+		for (int i = 0; i < c.length; i++) {
+			if (!ltm.containsKey(c[i])) {
+				ltm.put(c[i], 1);
+			} else {
+				Integer x = ltm.get(c[i]);
+				ltm.put(c[i], ++x);
+			}
+		}
+
+		for (Entry<Character, Integer> entry : ltm.entrySet()) {
+			Integer x = entry.getValue();
+			if (x > 1) {
+				for (int i = 0; i < x; i++) {
+					System.out.print(entry.getKey() + "" + entry.getValue());
+				}
+			} else {
+				System.out.print(entry.getKey() + "" + entry.getValue());
+			}
+		}
+
+		/*
+		 * ### COUNT CHAR AND VALUE USING HASHMAP #### int k = 1; char[] c =
+		 * s.toCharArray(); HashMap<Character, Integer> hm = new
+		 * HashMap<Character, Integer>(); for (int i = 0; i < c.length; i++) {
+		 * if (!hm.containsKey(c[i])) { hm.put(c[i], 1); } else { Integer x =
+		 * hm.get(c[i]); hm.put(c[i], ++x); } } for (Entry<Character, Integer>
+		 * entry : hm.entrySet()) { System.out.print(entry.getKey() + "" +
+		 * entry.getValue()); }
+		 */
+	}
+}

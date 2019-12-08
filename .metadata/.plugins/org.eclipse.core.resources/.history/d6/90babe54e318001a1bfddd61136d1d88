@@ -1,0 +1,27 @@
+package com.test.threadSample;
+
+public class TikThread extends Thread {
+	ResourceLock lock;
+
+	TikThread(ResourceLock lock) {
+		this.lock = lock;
+	}
+	@Override
+	public void run() {
+		try {
+			synchronized (lock) {
+				for (int i = 0; i < 5; i++) {
+					while (lock.flag != 1) {
+						lock.wait();
+					}
+					System.out.print("Tik ");
+					lock.flag = 2;
+					lock.notifyAll();
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Tik Exception :" + e.getMessage());
+		}
+	}
+
+}

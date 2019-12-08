@@ -1,0 +1,46 @@
+package com.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Timeouts;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginPage extends BaseClass {
+
+	public LoginPage() {
+		super();
+	}
+	
+	private void ExternalWaitCSS(String locator){
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOf(findElementByCSS(locator)));
+	}
+
+	String singOnCSS = "a[href*=\"signon\"]";
+	String singOnXpath = "//a[contains(@href,'signon')]";
+	String userNameXpath = "//input[@name='userName']";
+	String passwordXpath = "//input[@name='password']";
+	String submitCSS = "input[name=login]";
+	String submitXpath = "//input[@name='login']";
+
+
+	WebElement findElementByCSS(String locator) {
+		ExternalWaitCSS(locator);
+		return driver.findElement(By.cssSelector(locator));
+	}
+
+	WebElement findElementByXpath(String locator) {
+		return driver.findElement(By.xpath(locator));
+	}
+
+	public void SignOn(WebDriver driver, String username, String password) {
+		findElementByXpath(singOnXpath).click();
+		findElementByXpath(userNameXpath).sendKeys(username);
+		findElementByXpath(passwordXpath).sendKeys(password);
+		findElementByXpath(submitXpath);
+	}
+
+}

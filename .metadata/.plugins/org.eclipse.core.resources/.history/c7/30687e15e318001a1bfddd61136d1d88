@@ -1,0 +1,14 @@
+
+public class replacewithPercent2 {
+
+	public static void main(String[] args) {
+		String s = "My name is Ravi welcome to India How are you!";
+		String str[] = s.split(" ");
+		String out = "";
+		for (int i = 0; i < str.length - 1; i++) {
+			out = out + str[i] + "%2";
+		}
+		System.out.println(out + str[str.length - 1]);
+	}
+
+}
